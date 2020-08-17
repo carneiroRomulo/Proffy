@@ -8,7 +8,7 @@ import TeacherItem from '../../components/TeacherItem';
 export default function TeacherList() {
   return(
     <div id="page-teacher-list" className="container">
-      <PageHeader title="Que incrível que você quer dar aulas">
+      <PageHeader title="Esses são os Proffys disponíveis.">
         <form id="search-teachers">
           <div className="input-block">
             <label htmlFor="subject">Matéria</label>
