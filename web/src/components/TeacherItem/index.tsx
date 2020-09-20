@@ -3,36 +3,57 @@ import React from "react";
 import "./styles.css";
 
 import whatsappIcon from "../../assets/images/icons/whatsapp.svg";
+import api from "../../services/api";
 
-function TeacherItem() {
+export interface Teacher {
+  avatar: string,
+  bio: string,
+  cost: number,
+  id: number,
+  name: string,
+  subject: string,
+  whatsapp: string,
+}
+
+interface TeacherItemProps {
+  teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({teacher}) => {
+  function createNewConnection() {
+    api.post('connections', {
+      user_id: teacher.id,
+    })
+  }
+
   return (
     <article className="teacher-item">
       <header>
         <img
-            src="https://avatars0.githubusercontent.com/u/63604342?s=460&u=4573629b2abd75826e7e72a36366bea808b2bf0d&v=4"
-            alt="Rômulo Carneiro"
+            src={teacher.avatar}
+            alt={teacher.name}
         />
         <div>
-          <strong>Rômulo Carneiro</strong>
-          <span>Ciência da Computação</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
-      <p>
-        Aulas sobre tecnologias como Machine Learning & linguagens de programação como Python.
-        <br /> <br />
-        Estude para se tornar um ciêntista da Computação e ser capaz de resolver qualquer desafios
-        imposto pelo mercado de trabalho.
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço/hora
-          <strong>R$ 100,00</strong>
+          <strong>R$ {teacher.cost}</strong>
         </p>
-        <button type="button">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={createNewConnection}
+          href={`https://wa.me/${teacher.whatsapp}`}
+        >
           <img src={whatsappIcon} alt="Whatsapp" />
           Entrar em Contato
-        </button>
+        </a>
       </footer>
     </article>
   );

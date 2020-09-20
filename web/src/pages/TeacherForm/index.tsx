@@ -111,6 +111,7 @@ function TeacherForm() {
 
             <Select
               name="subject"
+              defaultMessage="Selecione uma matéria"
               label="Matéria"
               value={subject}
               onChange={(event) => {setSubject(event.target.value)}}
