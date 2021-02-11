@@ -15,7 +15,7 @@
 
 ## Description
 
-This project was created with the aim of learning more about the technologies below during an event called Next level Week provided by Rocketseat
+This project was created with the aim of learning more about the technologies below during an event called Next level Week provided by Rocketseat, it can be acessed on through this [link](https://proffy-romulo.vercel.app/) 
 
 ---
 
